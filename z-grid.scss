@@ -1,0 +1,203 @@
+.grid-row {
+	@extend %clearfix;
+}
+.grid-column {
+	position: relative;
+	float: left;
+	&:not(:first-child) {
+		margin-left: $grid-column-gutter;
+	}
+}
+
+//Fixed width column
+.colfix-1c { @include columnBuilder(1,1); }
+.colfix-2c { @include columnBuilder(2,2); }
+.colfix-3c { @include columnBuilder(3,3); }
+.colfix-4c { @include columnBuilder(4,4); }
+.colfix-5c { @include columnBuilder(5,5); }
+.colfix-6c { @include columnBuilder(6,6); }
+.colfix-7c { @include columnBuilder(7,7); }
+.colfix-8c { @include columnBuilder(8,8); }
+
+.colflex-single-max-6c-min-4c {
+	width: 100%;
+	@include columnBuilder(6,4);
+	margin-left: auto;
+	margin-right: auto;
+}
+.colflex-single-max-6c-min-3c {
+	width: 100%;
+	@include columnBuilder(6,3);
+	margin-left: auto;
+	margin-right: auto;
+}
+//Flexible columns without min-width.
+.colflex-100p {
+	width: 100%;
+	&.grid-column:not(:nth-of-type(1)) {
+		width: calc(100% - #{$grid-column-gutter});
+	}
+}
+.colflex-75p {
+	width: 75%;
+	&.grid-column:not(:nth-of-type(1)) {
+		width: calc(75% - #{$grid-column-gutter});
+	}
+}
+.colflex-67p {
+	width: 67%;
+	&.grid-column:not(:nth-of-type(1)) {
+		width: calc(67% - #{$grid-column-gutter});
+	}
+}
+.colflex-60p {
+	width: 60%;
+	&.grid-column:not(:nth-of-type(1)) {
+		width: calc(60% - #{$grid-column-gutter});
+	}
+}
+.colflex-50p {
+	width: 50%;
+	&.grid-column:not(:nth-of-type(1)) {
+		width: calc(50% - #{$grid-column-gutter});
+	}
+}
+.colflex-40p {
+	width: 40%;
+	&.grid-column:not(:nth-of-type(1)) {
+		width: calc(40% - #{$grid-column-gutter});
+	}
+}
+.colflex-33p {
+	width: 33%;
+	&.grid-column:not(:nth-of-type(1)) {
+		width: calc(33% - #{$grid-column-gutter});
+	}
+}
+.colflex-25p {
+	width: 25%;
+	&.grid-column:not(:nth-of-type(1)) {
+		width: calc(25% - #{$grid-column-gutter});
+	}
+}
+.colflex-20p {
+	width: 20%;
+	&.grid-column:not(:nth-of-type(1)) {
+		width: calc(20% - #{$grid-column-gutter});
+	}
+}
+.colflex-10p {
+	width: 10%;
+	&.grid-column:not(:nth-of-type(1)) {
+				width: calc(10% - #{$grid-column-gutter});
+	}
+}
+
+.colflex-1c { @include flexColumnBuilder(1,0); }
+.colflex-2c { @include flexColumnBuilder(2,0); }
+.colflex-3c { @include flexColumnBuilder(3,0); }
+.colflex-4c { @include flexColumnBuilder(4,0); }
+.colflex-5c { @include flexColumnBuilder(5,0); }
+.colflex-6c { @include flexColumnBuilder(6,0); }
+.colflex-7c { @include flexColumnBuilder(7,0); }
+.colflex-8c { @include flexColumnBuilder(8,0); }
+.colflex-9c { @include flexColumnBuilder(9,0); }
+.colflex-10c { @include flexColumnBuilder(10,0); }
+.colflex-11c { @include flexColumnBuilder(11,0); }
+.colflex-12c { @include flexColumnBuilder(12,0); }
+//Flexible columns with min-width (in columns)
+.colflex-2c-min-1c { @include flexColumnBuilder(2,1); }
+.colflex-2c-min-2c { @include flexColumnBuilder(2,2); }
+
+.colflex-3c-min-1c { @include flexColumnBuilder(3,1); }
+.colflex-3c-min-2c { @include flexColumnBuilder(3,2); }
+.colflex-3c-min-3c { @include flexColumnBuilder(3,3); }
+
+.colflex-4c-min-1c { @include flexColumnBuilder(4,1); }
+.colflex-4c-min-2c { @include flexColumnBuilder(4,2); }
+.colflex-4c-min-3c { @include flexColumnBuilder(4,3); }
+.colflex-4c-min-4c { @include flexColumnBuilder(4,4); }
+
+.colflex-5c-min-1c { @include flexColumnBuilder(5,1); }
+.colflex-5c-min-2c { @include flexColumnBuilder(5,2); }
+.colflex-5c-min-3c { @include flexColumnBuilder(5,3); }
+.colflex-5c-min-4c { @include flexColumnBuilder(5,4); }
+.colflex-5c-min-5c { @include flexColumnBuilder(5,5); }
+
+.colflex-6c-min-1c { @include flexColumnBuilder(6,1); }
+.colflex-6c-min-2c { @include flexColumnBuilder(6,2); }
+.colflex-6c-min-3c { @include flexColumnBuilder(6,3); }
+.colflex-6c-min-4c { @include flexColumnBuilder(6,4); }
+.colflex-6c-min-5c { @include flexColumnBuilder(6,5); }
+.colflex-6c-min-6c { @include flexColumnBuilder(6,6); }
+
+.colflex-7c-min-1c { @include flexColumnBuilder(7,1); }
+.colflex-7c-min-2c { @include flexColumnBuilder(7,2); }
+.colflex-7c-min-3c { @include flexColumnBuilder(7,3); }
+.colflex-7c-min-4c { @include flexColumnBuilder(7,4); }
+.colflex-7c-min-5c { @include flexColumnBuilder(7,5); }
+.colflex-7c-min-6c { @include flexColumnBuilder(7,6); }
+.colflex-7c-min-7c { @include flexColumnBuilder(7,7); }
+
+.colflex-8c-min-1c { @include flexColumnBuilder(8,1); }
+.colflex-8c-min-2c { @include flexColumnBuilder(8,2); }
+.colflex-8c-min-3c { @include flexColumnBuilder(8,3); }
+.colflex-8c-min-4c { @include flexColumnBuilder(8,4); }
+.colflex-8c-min-5c { @include flexColumnBuilder(8,5); }
+.colflex-8c-min-6c { @include flexColumnBuilder(8,6); }
+.colflex-8c-min-7c { @include flexColumnBuilder(8,7); }
+.colflex-8c-min-8c { @include flexColumnBuilder(8,8); }
+
+.colflex-9c-min-1c { @include flexColumnBuilder(9,1); }
+.colflex-9c-min-2c { @include flexColumnBuilder(9,2); }
+.colflex-9c-min-3c { @include flexColumnBuilder(9,3); }
+.colflex-9c-min-4c { @include flexColumnBuilder(9,4); }
+.colflex-9c-min-5c { @include flexColumnBuilder(9,5); }
+.colflex-9c-min-6c { @include flexColumnBuilder(9,6); }
+.colflex-9c-min-7c { @include flexColumnBuilder(9,7); }
+.colflex-9c-min-8c { @include flexColumnBuilder(9,8); }
+.colflex-9c-min-9c { @include flexColumnBuilder(9,9); }
+
+.colflex-10c-min-1c { @include flexColumnBuilder(10,1); }
+.colflex-10c-min-2c { @include flexColumnBuilder(10,2); }
+.colflex-10c-min-3c { @include flexColumnBuilder(10,3); }
+.colflex-10c-min-4c { @include flexColumnBuilder(10,4); }
+.colflex-10c-min-5c { @include flexColumnBuilder(10,5); }
+.colflex-10c-min-6c { @include flexColumnBuilder(10,6); }
+.colflex-10c-min-7c { @include flexColumnBuilder(10,7); }
+.colflex-10c-min-8c { @include flexColumnBuilder(10,8); }
+.colflex-10c-min-9c { @include flexColumnBuilder(10,9); }
+.colflex-10c-min-10c { @include flexColumnBuilder(10,10); }
+
+.colflex-11c-min-1c { @include flexColumnBuilder(11,1); }
+.colflex-11c-min-2c { @include flexColumnBuilder(11,2); }
+.colflex-11c-min-3c { @include flexColumnBuilder(11,3); }
+.colflex-11c-min-4c { @include flexColumnBuilder(11,4); }
+.colflex-11c-min-5c { @include flexColumnBuilder(11,5); }
+.colflex-11c-min-6c { @include flexColumnBuilder(11,6); }
+.colflex-11c-min-7c { @include flexColumnBuilder(11,7); }
+.colflex-11c-min-8c { @include flexColumnBuilder(11,8); }
+.colflex-11c-min-9c { @include flexColumnBuilder(11,9); }
+.colflex-11c-min-10c { @include flexColumnBuilder(11,10); }
+.colflex-11c-min-11c { @include flexColumnBuilder(11,11); }
+
+.colflex-12c-min-1c { @include flexColumnBuilder(12,1); }
+.colflex-12c-min-2c { @include flexColumnBuilder(12,2); }
+.colflex-12c-min-3c { @include flexColumnBuilder(12,3); }
+.colflex-12c-min-4c { @include flexColumnBuilder(12,4); }
+.colflex-12c-min-5c { @include flexColumnBuilder(12,5); }
+.colflex-12c-min-6c { @include flexColumnBuilder(12,6); }
+.colflex-12c-min-7c { @include flexColumnBuilder(12,7); }
+.colflex-12c-min-8c { @include flexColumnBuilder(12,8); }
+.colflex-12c-min-9c { @include flexColumnBuilder(12,9); }
+.colflex-12c-min-10c { @include flexColumnBuilder(12,10); }
+.colflex-12c-min-11c { @include flexColumnBuilder(12,11); }
+.colflex-12c-min-12c { @include flexColumnBuilder(12,12); }
+
+@media screen and (max-width: 768px) {
+	.grid-column {
+		float: none !important;
+		margin-left: 0 !important;
+		width: auto !important;
+	}
+}
