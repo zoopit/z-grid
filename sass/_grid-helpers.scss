@@ -1,0 +1,85 @@
+/**
+ * The default width (in pixels) of 1 column in the grid.
+ * @type {Number}
+ */
+$grid-column-width: 60px !default;
+/**
+ * The default width (in pixels) of the grid gutter.
+ * @type {Number}
+ */
+$grid-column-gutter: 20px !default;
+
+%clearfix {
+	&:before, &::after {
+		content: '';
+		display: block;
+		clear:both;
+	}
+}
+/**
+ * Auto generates fixed width columns. The default style for the class name is for instance: '.colfix-1c'.
+ * @param  {Number} $num-of-cols:  10							Number of column classes to be generated. Default value is 10.
+ * @param  {String} $class-prefix: 'colfix'				The class prefix to be prepended before the column number. Initial value is 'colfix-'.
+ * @param  {String} $class-suffix: 'c'						The class suffix to be appended after the column number. Initial value is 'c'.
+ * @return {CSS}																	Returns a series of CSS classes for fixed width columns.
+ */
+@mixin createFixedWidthColumns($num-of-cols: 10, $class-prefix: 'colfix-', $class-suffix: 'c') {
+	@for $i from 1 through $num-of-cols {
+		.#{$class-prefix}#{$i}#{$class-suffix} { @include columnBuilder($i,$i); }
+	}
+}
+/**
+ * Creates a column based on the amount of columns set.
+ * @param  {Number} $col-max:0										The maximum width of a column expressed in 'grid columns'.
+ * @param  {Number} $col-min:0										The minimum width of a column expressed in 'grid columns'.
+ * @param  {Boolean} $ignoreFirstGutter: false		If true, supress the gutter value in the final calculations. Default value is 'false'.
+ * @return {CSS}																	Returns a series of CSS properties that makes a column.
+ */
+@mixin columnBuilder($col-max:0, $col-min:0, $ignoreFirstGutter: false) {
+	@if $col-max == $col-min {
+		width: columnsToPixels($col-max, $ignoreFirstGutter);
+	}
+	@else
+	{
+		@if $col-max > 0 {
+			max-width: columnsToPixels($col-max, $ignoreFirstGutter);
+		}
+		@if $col-min > 0 {
+			min-width: columnsToPixels($col-min, $ignoreFirstGutter);
+		}
+	}
+}
+/**
+ * Creates a flexible column based on the amount of columns to be offset. So flexible columns can be generated and
+ * @param  {Number} $col-width:0        [description]
+ * @param  {Number} $col-min:0          [description]
+ * @param  {Number} $flex-col:100%      [description]
+ * @param  {Boolean} $ignoreFirstGutter: true          [description]
+ * @return {CSS}                     Returns a series of CSS properties that makes a flexible column.
+ */
+@mixin flexColumnBuilder($col-width:0, $col-min:0, $flex-col:100%, $ignoreFirstGutter: true) {
+	@if $ignoreFirstGutter {
+			width: calc(#{$flex-col} - #{columnsToPixels($col-width, $ignoreFirstGutter)});
+	}
+	@else {
+		width: calc(#{$flex-col} - #{columnsToPixels($col-width, $ignoreFirstGutter) + $grid-column-gutter});
+	}
+	@if $col-min > 0 {
+		min-width: columnsToPixels($col-min);
+	}
+}
+/**
+ * This is a the main helper function that converts the grid columns into pixel values.
+ * @param  {Number} $colsNum											Number of columns to be converted to pixels.
+ * @param  {Boolean} $ignoreFirstGutter: false		If true, supress the gutter value in the final calculations. Default value is 'false'.
+ * @return {Number}																Returns the calculation result.
+ */
+@function columnsToPixels($colsNum, $ignoreFirstGutter: false)
+{
+	@if $ignoreFirstGutter {
+		@return (($grid-column-width + $grid-column-gutter) * $colsNum);
+	}
+	@else {
+		@return (($grid-column-width + $grid-column-gutter) * $colsNum - $grid-column-gutter);
+	}
+}

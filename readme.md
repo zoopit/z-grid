@@ -1,2 +1,2 @@
 ###Readme
-Z grid is a CSS flexible grid inspired by flexbox model using the calc() function.
+Z-Grid is a CSS flexible grid inspired(ish) by flexbox model using the calc() function.

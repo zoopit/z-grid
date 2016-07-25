@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Z-Grid: An alternative CSS to flexible grids without use of flexbox.</title>
+	<link rel="stylesheet" href="css/z-grid.css">
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+		}
+		#col1 { background: #eee; }
+		#col2 { background: #aaa; }
+		#col3 { background: #666; color: #fff }
+		#col4 { background: #333; color: #fff }
+	</style>
+</head>
+<body>
+	<div class="z-grid-row">
+		<div id="col1" class="z-grid-column">
+			<h1>Column 1</h1>
+		</div>
+		<section id="col2" class="z-grid-column">
+			<h1>Column 2</h1>
+		</section>
+		<section id="col3" class="z-grid-column">
+			<h1>Column 3</h1>
+		</section>
+		<section id="col4" class="z-grid-column">
+			<h1>Column 4</h1>
+		</section>
+	</div>
+</body>
+</html>

@@ -1,23 +1,15 @@
-.grid-row {
+@import "grid-helpers";
+
+.z-grid-row {
 	@extend %clearfix;
 }
-.grid-column {
-	position: relative;
+.z-grid-column {
 	float: left;
 	&:not(:first-child) {
 		margin-left: $grid-column-gutter;
 	}
 }
-
-//Fixed width column
-.colfix-1c { @include columnBuilder(1,1); }
-.colfix-2c { @include columnBuilder(2,2); }
-.colfix-3c { @include columnBuilder(3,3); }
-.colfix-4c { @include columnBuilder(4,4); }
-.colfix-5c { @include columnBuilder(5,5); }
-.colfix-6c { @include columnBuilder(6,6); }
-.colfix-7c { @include columnBuilder(7,7); }
-.colfix-8c { @include columnBuilder(8,8); }
+@include createFixedWidthColumns();
 
 .colflex-single-max-6c-min-4c {
 	width: 100%;
