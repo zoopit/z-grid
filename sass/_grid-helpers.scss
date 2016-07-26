@@ -10,7 +10,7 @@ $grid-column-width: 60px !default;
 $grid-column-gutter: 20px !default;
 
 %clearfix {
-	&:before, &::after {
+	&::before, &::after {
 		content: '';
 		display: block;
 		clear:both;
@@ -26,6 +26,36 @@ $grid-column-gutter: 20px !default;
 @mixin createFixedWidthColumns($num-of-cols: 10, $class-prefix: 'colfix-', $class-suffix: 'c') {
 	@for $i from 1 through $num-of-cols {
 		.#{$class-prefix}#{$i}#{$class-suffix} { @include columnBuilder($i,$i); }
+	}
+}
+/**
+ * Auto generates flexible width columns. The default style for the class name is for instance: '.colflex-2c-min-1c'.
+ * @param  {Number} $num-of-cols:  12							Number of column classes to be generated. Default value is 12.
+ * @param  {String} $class-prefix: 'colflex'			The class prefix to be prepended before the column number. Initial value is 'colflex-'.
+ * @param  {String} $class-suffix: 'c'						The class suffix to be appended after the column number. Initial value is 'c'.
+ * @return {CSS}																	Returns a series of CSS classes for fixed width columns.
+ */
+@mixin createFlexibleWidthColumns($num-of-cols: 12, $class-prefix: 'colflex-', $class-midfix: 'shrink-', $class-suffix: 'c') {
+	@for $i from 1 through $num-of-cols {
+		.#{$class-prefix}#{$class-midfix}#{$i}#{$class-suffix} { @include flexColumnBuilder($i,0); }
+		@for $j from $num-of-cols through 1 {
+			.#{$class-prefix}#{$class-midfix}#{$i}#{$class-suffix}-min-#{$j}#{$class-suffix} { @include flexColumnBuilder($i,$j); }
+		}
+	}
+}
+/**
+ * Generates columns percentage width columns. The default style for the class name is 'colflex-[value]p'
+ * @param  {Number} $col-percentage: 100					A percentage value for the column width.
+ * @param  {String} $class-prefix:   'colflex-'		The class prefix to be prepended before the column number. Initial value is 'colflex-'.
+ * @param  {String} $class-suffix:   'p'					The class suffix to be appended after the column number. Initial value is 'p'.
+ * @return {CSS class}														Returns a class for the percentage of
+ */
+@mixin createPercentageColumn($col-percentage: 100, $class-prefix: 'colflex-', $class-suffix: 'p') {
+	.#{$class-prefix}#{$col-percentage}#{$class-suffix} {
+		width: #{$col-percentage}%;
+		&.z-grid-column:not(:first-of-type) {
+			width: calc(#{$col-percentage}% - #{$grid-column-gutter});
+		}
 	}
 }
 /**

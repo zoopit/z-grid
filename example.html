@@ -2,34 +2,78 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Z-Grid: An alternative CSS to flexible grids without use of flexbox.</title>
+	<title>Z-Grid - a simple CSS flexible grid inspired(ish) by flexbox model using the calc() function.</title>
 	<link rel="stylesheet" href="css/z-grid.css">
 	<style>
 		html, body {
 			margin: 0;
 			padding: 0;
-			font-family: sans-serif;
+			font-family: -apple-system, Helvetica, Arial, sans-serif;
 		}
-		#col1 { background: #eee; }
-		#col2 { background: #aaa; }
-		#col3 { background: #666; color: #fff }
-		#col4 { background: #333; color: #fff }
+		body { margin: 40px;}
+		.z-grid-column {
+			padding: 20px;
+		}
+		.color-eee { background: #eee; }
+		.color-aaa { background: #aaa; }
+		.color-666 { background: #666; color: #fff }
+		.color-333 { background: #333; color: #fff }
+		.color-000 { background: #000; color: #fff }
 	</style>
 </head>
 <body>
+	<h1>Z-Grid</h1>
+	<h5>A simple CSS flexible grid inspired(ish) by flexbox model using the calc() function.</h5>
 	<div class="z-grid-row">
-		<div id="col1" class="z-grid-column">
-			<h1>Column 1</h1>
-		</div>
-		<section id="col2" class="z-grid-column">
-			<h1>Column 2</h1>
+		<h3>Columns only</h3>
+		<section class="z-grid-column color-eee">
+			<h4>Column A</h4>
 		</section>
-		<section id="col3" class="z-grid-column">
-			<h1>Column 3</h1>
+		<section class="z-grid-column color-aaa">
+			<h4>Column B</h4>
 		</section>
-		<section id="col4" class="z-grid-column">
-			<h1>Column 4</h1>
+		<section class="z-grid-column color-666">
+			<h4>Column C</h4>
 		</section>
+		<section class="z-grid-column color-333">
+			<h4>Column D</h4>
+		</section>
+		<section class="z-grid-column color-000">
+			<h4>Column E</h4>
+		</section>
+	</div>
+	<div class="z-grid-row">
+		<h3>Percentage columns</h3>
+		<section class="z-grid-column colflex-60p color-eee">
+			<h4>Column 60%</h4>
+		</section>
+		<section class="z-grid-column colflex-40p color-aaa">
+			<h4>Column 40%</h4>
+			<div class="z-grid-column colflex-50p color-666">Nested column 50%</div>
+			<div class="z-grid-column colflex-50p color-333">Nested column 50%</div>
+		</section>
+	</div>
+	<div class="z-grid-row">
+		<h3>Flexible and fixed width columns</h3>
+		<section class="z-grid-column colfix-2c color-eee">
+			<h4>Fixed width column</h4>
+			<p>2 columns</p>
+		</section>
+		<section class="z-grid-column colflex-shrink-4c color-aaa">
+			<h4>Flexible width column</h4>
+			<p>Fills the width of 4 columns</p>
+			<div class="z-grid-column colfix-1c color-333"></div>
+			<div class="z-grid-column colflex-shrink-2c color-666"></div>
+			<div class="z-grid-column colfix-1c color-eee"></div>
+		</section>
+		<section class="z-grid-column colfix-2c color-666">
+			<h4>Fixed width column</h4>
+			<p>2 columns</p>
+		</section>
+	</div>
+	<div class="z-grid-row">
+		<h3>Singlet columns</h3>
+		<div class="z-grid-column singlet-colflex-max-6c-min-4c color-333">Singlet columns (max-width: 6 and min-width: 4).</div>
 	</div>
 </body>
 </html>
