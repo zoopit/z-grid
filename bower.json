@@ -1,0 +1,29 @@
+{
+  "name": "z-grid",
+  "description": "Z-Grid is a simple CSS flexible grid inspired(ish) by flexbox model using the calc() function.",
+  "authors": [
+    "Felipe Hefler"
+  ],
+  "main": [
+    "dist/z-grid.css",
+    "sass/z-grid.scss"
+  ],
+	"repository": {
+	  "type": "git",
+	  "url": "git://github.com/zoopit/z-grid.git"
+	},
+	"license": "MIT",
+	"keywords": [
+		"css",
+		"grid",
+		"flexbox",
+		"fluid",
+		"scalable",
+		"sass"
+	],
+  "ignore": [
+    ".*",
+    "bower_components",
+		"config.codekit"
+  ]
+}
