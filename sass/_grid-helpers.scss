@@ -1,12 +1,12 @@
-/**
- * The default width (in pixels) of 1 column in the grid.
- * @type {Number}
- */
+//
+// The default width (in pixels) of 1 column in the grid.
+// @type {Number}
+//
 $grid-column-width: 60px !default;
-/**
- * The default width (in pixels) of the grid gutter.
- * @type {Number}
- */
+//
+// The default width (in pixels) of the grid gutter.
+// @type {Number}
+//
 $grid-column-gutter: 20px !default;
 
 %clearfix {
@@ -16,55 +16,52 @@ $grid-column-gutter: 20px !default;
 		clear:both;
 	}
 }
-/**
- * Auto generates fixed width columns. The default style for the class name is for instance: '.colfix-1c'.
- * @param  {Number} $num-of-cols:  10							Number of column classes to be generated. Default value is 10.
- * @param  {String} $class-prefix: 'colfix'				The class prefix to be prepended before the column number. Initial value is 'colfix-'.
- * @param  {String} $class-suffix: 'c'						The class suffix to be appended after the column number. Initial value is 'c'.
- * @return {CSS}																	Returns a series of CSS classes for fixed width columns.
- */
+//
+// Auto generates fixed width columns. The default style for the class name is for instance: '.colfix-1c'.
+// @param  {Number} $num-of-cols:  10							Number of column classes to be generated. Default value is 10.
+// @param  {String} $class-prefix: 'colfix'				The class prefix to be prepended before the column number. Initial value is 'colfix-'.
+// @param  {String} $class-suffix: 'c'						The class suffix to be appended after the column number. Initial value is 'c'.
+// @return {CSS class}														Returns a series of CSS classes for fixed width columns.
+//
 @mixin createFixedWidthColumns($num-of-cols: 10, $class-prefix: 'colfix-', $class-suffix: 'c') {
 	@for $i from 1 through $num-of-cols {
 		.#{$class-prefix}#{$i}#{$class-suffix} { @include columnBuilder($i,$i); }
 	}
 }
-/**
- * Auto generates flexible width columns. The default style for the class name is for instance: '.colflex-2c-min-1c'.
- * @param  {Number} $num-of-cols:  12							Number of column classes to be generated. Default value is 12.
- * @param  {String} $class-prefix: 'colflex'			The class prefix to be prepended before the column number. Initial value is 'colflex-'.
- * @param  {String} $class-suffix: 'c'						The class suffix to be appended after the column number. Initial value is 'c'.
- * @return {CSS}																	Returns a series of CSS classes for fixed width columns.
- */
+//
+// Auto generates flexible width columns. The default style for the class name is for instance: '.colflex-2c-min-1c'.
+// @param  {Number} $num-of-cols:  12							Number of column classes to be generated. Default value is 12.
+// @param  {String} $class-prefix: 'colflex'			The class prefix to be prepended before the column number. Initial value is 'colflex-'.
+// @param  {String} $class-suffix: 'c'						The class suffix to be appended after the column number. Initial value is 'c'.
+// @return {CSS class}														Returns a series of CSS classes for fixed width columns.
+//
 @mixin createFlexibleWidthColumns($num-of-cols: 12, $class-prefix: 'colflex-', $class-midfix: 'shrink-', $class-suffix: 'c') {
 	@for $i from 1 through $num-of-cols {
-		.#{$class-prefix}#{$class-midfix}#{$i}#{$class-suffix} { @include flexColumnBuilder($i,0); }
-		@for $j from $num-of-cols through 1 {
-			.#{$class-prefix}#{$class-midfix}#{$i}#{$class-suffix}-min-#{$j}#{$class-suffix} { @include flexColumnBuilder($i,$j); }
-		}
+		.z-grid-column[class^="#{$class-prefix}#{$class-midfix}#{$i}#{$class-suffix}"], .z-grid-column[class*=" #{$class-prefix}#{$class-midfix}#{$i}#{$class-suffix}"] { @include flexColumnBuilder($i,0); }
 	}
 }
-/**
- * Generates columns percentage width columns. The default style for the class name is 'colflex-[value]p'
- * @param  {Number} $col-percentage: 100					A percentage value for the column width.
- * @param  {String} $class-prefix:   'colflex-'		The class prefix to be prepended before the column number. Initial value is 'colflex-'.
- * @param  {String} $class-suffix:   'p'					The class suffix to be appended after the column number. Initial value is 'p'.
- * @return {CSS class}														Returns a class for the percentage of
- */
+//
+// Generates columns percentage width columns. The default style for the class name is 'colflex-[value]p'
+// @param  {Number} $col-percentage: 100					A percentage value for the column width.
+// @param  {String} $class-prefix:   'colflex-'		The class prefix to be prepended before the column number. Initial value is 'colflex-'.
+// @param  {String} $class-suffix:   'p'					The class suffix to be appended after the column number. Initial value is 'p'.
+// @return {CSS class}														Returns a class with the percentage width.
+//
 @mixin createPercentageColumn($col-percentage: 100, $class-prefix: 'colflex-', $class-suffix: 'p') {
 	.#{$class-prefix}#{$col-percentage}#{$class-suffix} {
 		width: #{$col-percentage}%;
-		&.z-grid-column:not(:first-of-type) {
+		&:not(:first-of-type) {
 			width: calc(#{$col-percentage}% - #{$grid-column-gutter});
 		}
 	}
 }
-/**
- * Creates a column based on the amount of columns set.
- * @param  {Number} $col-max:0										The maximum width of a column expressed in 'grid columns'.
- * @param  {Number} $col-min:0										The minimum width of a column expressed in 'grid columns'.
- * @param  {Boolean} $ignoreFirstGutter: false		If true, supress the gutter value in the final calculations. Default value is 'false'.
- * @return {CSS}																	Returns a series of CSS properties that makes a column.
- */
+//
+// Creates a column based on the amount of columns set.
+// @param  {Number} $col-max:0										The maximum width of a column expressed in 'grid columns'.
+// @param  {Number} $col-min:0										The minimum width of a column expressed in 'grid columns'.
+// @param  {Boolean} $ignoreFirstGutter: false		If true, supress the gutter value in the final calculations. Default value is 'false'.
+// @return {CSS}																	Returns a series of CSS properties that makes a column.
+//
 @mixin columnBuilder($col-max:0, $col-min:0, $ignoreFirstGutter: false) {
 	@if $col-max == $col-min {
 		width: columnsToPixels($col-max, $ignoreFirstGutter);
@@ -79,31 +76,33 @@ $grid-column-gutter: 20px !default;
 		}
 	}
 }
-/**
- * Creates a flexible column based on the amount of columns to be offset. So flexible columns can be generated and
- * @param  {Number} $col-width:0        [description]
- * @param  {Number} $col-min:0          [description]
- * @param  {Number} $flex-col:100%      [description]
- * @param  {Boolean} $ignoreFirstGutter: true          [description]
- * @return {CSS}                     Returns a series of CSS properties that makes a flexible column.
- */
-@mixin flexColumnBuilder($col-width:0, $col-min:0, $flex-col:100%, $ignoreFirstGutter: true) {
-	@if $ignoreFirstGutter {
-			width: calc(#{$flex-col} - #{columnsToPixels($col-width, $ignoreFirstGutter)});
-	}
-	@else {
-		width: calc(#{$flex-col} - #{columnsToPixels($col-width, $ignoreFirstGutter) + $grid-column-gutter});
+//
+// Creates a flexible column based on the amount of columns to be offset. So flexible columns can be generated and
+// @param  {Number} $col-width:0        [description]
+// @param  {Number} $col-min:0          [description]
+// @param  {Number} $flex-col:100%      [description]
+// @param  {Boolean} $ignoreFirstGutter: true          [description]
+// @return {CSS}                     Returns a series of CSS properties that makes a flexible column.
+//
+@mixin flexColumnBuilder($col-width:0, $col-min:0, $flex-col:100%, $ignoreFirstGutter: true, $skipWidth: false) {
+	@if $skipWidth == false {
+		@if $ignoreFirstGutter {
+				width: calc(#{$flex-col} - #{columnsToPixels($col-width, $ignoreFirstGutter)});
+		}
+		@else {
+			width: calc(#{$flex-col} - #{columnsToPixels($col-width, $ignoreFirstGutter) + $grid-column-gutter});
+		}
 	}
 	@if $col-min > 0 {
 		min-width: columnsToPixels($col-min);
 	}
 }
-/**
- * This is a the main helper function that converts the grid columns into pixel values.
- * @param  {Number} $colsNum											Number of columns to be converted to pixels.
- * @param  {Boolean} $ignoreFirstGutter: false		If true, supress the gutter value in the final calculations. Default value is 'false'.
- * @return {Number}																Returns the calculation result.
- */
+//
+// This is a the main helper function that converts the grid columns into pixel values.
+// @param  {Number} $colsNum											Number of columns to be converted to pixels.
+// @param  {Boolean} $ignoreFirstGutter: false		If true, supress the gutter value in the final calculations. Default value is 'false'.
+// @return {Number}																Returns the calculation result.
+//
 @function columnsToPixels($colsNum, $ignoreFirstGutter: false)
 {
 	@if $ignoreFirstGutter {
