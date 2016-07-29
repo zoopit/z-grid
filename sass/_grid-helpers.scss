@@ -49,7 +49,7 @@ $grid-column-gutter: 20px !default;
 //
 @mixin createPercentageColumn($col-percentage: 100, $class-prefix: 'colflex-', $class-suffix: 'p') {
 	.#{$class-prefix}#{$col-percentage}#{$class-suffix} {
-		width: #{$col-percentage}%;
+		width: $col-percentage + 0%;
 		&:not(:first-of-type) {
 			width: calc(#{$col-percentage}% - #{$grid-column-gutter});
 		}
