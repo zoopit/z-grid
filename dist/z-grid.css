@@ -7,49 +7,49 @@
 /*Percentage columns 1/4 */
 .colflex-100p { width: 100%; }
 
-.colflex-100p:not(:first-of-type) { width: calc(100% - 20px); }
+.colflex-100p.z-grid-column:not(:first-of-type) { width: calc(100% - 20px); }
 
 .colflex-75p { width: 75%; }
 
-.colflex-75p:not(:first-of-type) { width: calc(75% - 20px); }
+.colflex-75p.z-grid-column:not(:first-of-type) { width: calc(75% - 20px); }
 
 .colflex-50p { width: 50%; }
 
-.colflex-50p:not(:first-of-type) { width: calc(50% - 20px); }
+.colflex-50p.z-grid-column:not(:first-of-type) { width: calc(50% - 20px); }
 
 .colflex-25p { width: 25%; }
 
-.colflex-25p:not(:first-of-type) { width: calc(25% - 20px); }
+.colflex-25p.z-grid-column:not(:first-of-type) { width: calc(25% - 20px); }
 
 /*Percentage columns 1/3 */
 .colflex-67p { width: 67%; }
 
-.colflex-67p:not(:first-of-type) { width: calc(67% - 20px); }
+.colflex-67p.z-grid-column:not(:first-of-type) { width: calc(67% - 20px); }
 
 .colflex-33p { width: 33%; }
 
-.colflex-33p:not(:first-of-type) { width: calc(33% - 20px); }
+.colflex-33p.z-grid-column:not(:first-of-type) { width: calc(33% - 20px); }
 
 /*Percentage columns 1/2 */
 .colflex-80p { width: 80%; }
 
-.colflex-80p:not(:first-of-type) { width: calc(80% - 20px); }
+.colflex-80p.z-grid-column:not(:first-of-type) { width: calc(80% - 20px); }
 
 .colflex-60p { width: 60%; }
 
-.colflex-60p:not(:first-of-type) { width: calc(60% - 20px); }
+.colflex-60p.z-grid-column:not(:first-of-type) { width: calc(60% - 20px); }
 
 .colflex-40p { width: 40%; }
 
-.colflex-40p:not(:first-of-type) { width: calc(40% - 20px); }
+.colflex-40p.z-grid-column:not(:first-of-type) { width: calc(40% - 20px); }
 
 .colflex-20p { width: 20%; }
 
-.colflex-20p:not(:first-of-type) { width: calc(20% - 20px); }
+.colflex-20p.z-grid-column:not(:first-of-type) { width: calc(20% - 20px); }
 
 .colflex-10p { width: 10%; }
 
-.colflex-10p:not(:first-of-type) { width: calc(10% - 20px); }
+.colflex-10p.z-grid-column:not(:first-of-type) { width: calc(10% - 20px); }
 
 .z-grid-column[class^="singlet-"], .z-grid-column[class*=" singlet-"] { width: 100%; float: none; margin-left: auto; margin-right: auto; }
 
