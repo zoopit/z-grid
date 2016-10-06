@@ -1,6 +1,6 @@
 {
   "name": "Z-grid",
   "tagline": "A CSS flexible grid inspired(ish) by flexbox model using the calc() function.",
-  "body": "#Readme\r\nZ-Grid is a simple CSS flexible grid inspired(ish) by flexbox model using the calc() function.\r\n\r\n##Usage\r\n\r\n<script async src=\"//jsfiddle.net/hefler/jLc19tn6/1/embed/html,css,result/\"></script>\r\n\r\nThis is also available in `example.html` for a quick look about **z-grid** usage.\r\n\\**Better documentation and instructions to come*",
+  "body": "#Readme\r\nZ-Grid is a simple CSS flexible grid inspired(ish) by flexbox model using the calc() function.\r\n\r\n##Usage\r\n\r\nCheck the example here: https://jsfiddle.net/hefler/jLc19tn6/2/\r\n \r\nThis is also available in `example.html` for a quick look about **z-grid** usage.\r\n\\**Better documentation and instructions to come*",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
