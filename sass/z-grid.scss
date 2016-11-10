@@ -45,8 +45,14 @@ A copy of the GNU General Public License can be found at
 	margin-left: auto;
 	margin-right: auto;
 }
+.z-grid-column[class^="singlet-"]:not(:first-of-type), .z-grid-column[class*=" singlet-"]:not(:first-of-type) {
+	margin-left: auto;
+}
 .singlet-colflex-max-6c-min-4c {
 	@include columnBuilder(6,4);
+}
+.singlet-colflex-max-12c-min-4c {
+	@include columnBuilder(12,4);
 }
 .singlet-colflex-single-max-6c-min-3c {
 	@include columnBuilder(6,3);
@@ -69,6 +75,8 @@ A copy of the GNU General Public License can be found at
 }
 @media screen and (max-width: 767px) {
 	.z-grid-column {
+		&[class^="colflex-"]:not(:first-of-type),
+		&[class*=" colflex-"]:not(:first-of-type),
 		&:not(:first-of-type), & {
 			width: auto;
 		}

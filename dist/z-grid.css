@@ -54,7 +54,11 @@
 
 .z-grid-column[class^="singlet-"], .z-grid-column[class*=" singlet-"] { width: 100%; float: none; margin-left: auto; margin-right: auto; }
 
+.z-grid-column[class^="singlet-"]:not(:first-of-type), .z-grid-column[class*=" singlet-"]:not(:first-of-type) { margin-left: auto; }
+
 .singlet-colflex-max-6c-min-4c { max-width: 460px; min-width: 300px; }
+
+.singlet-colflex-max-12c-min-4c { max-width: 940px; min-width: 300px; }
 
 .singlet-colflex-single-max-6c-min-3c { max-width: 460px; min-width: 220px; }
 
@@ -84,4 +88,4 @@
   .z-grid-column[class^="colflex-shrink-11c"], .z-grid-column[class*=" colflex-shrink-11c"] { width: calc(100% - 880px); }
   .z-grid-column[class^="colflex-shrink-12c"], .z-grid-column[class*=" colflex-shrink-12c"] { width: calc(100% - 960px); } }
 
-@media screen and (max-width: 767px) { .z-grid-column:not(:first-of-type), .z-grid-column { width: auto; } }
+@media screen and (max-width: 767px) { .z-grid-column[class^="colflex-"]:not(:first-of-type), .z-grid-column[class*=" colflex-"]:not(:first-of-type), .z-grid-column:not(:first-of-type), .z-grid-column { width: auto; } }
