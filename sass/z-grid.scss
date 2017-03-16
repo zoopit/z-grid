@@ -1,5 +1,5 @@
 /*!
-Copyright (c) 2016 Felipe Hefler/Zoopit AS.
+Copyright (c) 2017 Felipe Hefler/Zoopit AS.
 This file is part of Z-Grid.
 
 Z-Grid is free software: you can redistribute it and/or modify
@@ -16,12 +16,11 @@ A copy of the GNU General Public License can be found at
 <http://www.gnu.org/licenses/>.
  */
 @import "grid-helpers";
-
 .z-grid-row {
 	box-sizing: border-box;
 	@extend %clearfix;
 }
-.z-grid-column {
+.z-grid-mosaic, .z-grid-tile, .z-grid-column {
 	box-sizing: border-box;
 }
 /*Percentage columns 1/4 */
@@ -70,8 +69,16 @@ A copy of the GNU General Public License can be found at
 			margin-left: $grid-column-gutter;
 		}
 	}
+	.z-grid-mosaic {
+	  column-gap:  $grid-column-gutter;
+		.z-grid-tile {
+			display: inline-block;
+			width: 100%;
+		}
+	}
 	@include createFixedWidthColumns();
 	@include createFlexibleWidthColumns();
+	@include createMosaics();
 }
 @media screen and (max-width: 767px) {
 	.z-grid-column {

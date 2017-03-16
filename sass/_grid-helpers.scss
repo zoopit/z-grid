@@ -56,6 +56,21 @@ $grid-column-gutter: 20px !default;
 	}
 }
 //
+// Auto generates fixed width mosaic. The default style for the class name is for instance: '.mcolumns-1c'.
+// @param  {Number} $num-of-mosaics:  10							Number of mosaics classes to be generated. Default value is 10.
+// @param  {String} $class-prefix: 'mcolumns'				The class prefix to be prepended before the column number. Initial value is 'mfix-'.
+// @param  {String} $class-suffix: 'c'						The class suffix to be appended after the column number. Initial value is 'c'.
+// @return {CSS class}														Returns a series of CSS classes for fixed width columns.
+//
+@mixin createMosaics($num-of-mosaics: 10, $class-prefix: 'mcolumns-', $class-suffix: 'c') {
+	@for $i from 1 through $num-of-mosaics {
+		.#{$class-prefix}#{$i}#{$class-suffix} {
+			column-count: $i;
+			column-width: columnsToPixels($num-of-mosaics - $i, true);
+		}
+	}
+}
+//
 // Creates a column based on the amount of columns set.
 // @param  {Number} $col-max:0										The maximum width of a column expressed in 'grid columns'.
 // @param  {Number} $col-min:0										The minimum width of a column expressed in 'grid columns'.
@@ -78,11 +93,12 @@ $grid-column-gutter: 20px !default;
 }
 //
 // Creates a flexible column based on the amount of columns to be offset. So flexible columns can be generated and
-// @param  {Number} $col-width:0        [description]
-// @param  {Number} $col-min:0          [description]
-// @param  {Number} $flex-col:100%      [description]
-// @param  {Boolean} $ignoreFirstGutter: true          [description]
-// @return {CSS}                     Returns a series of CSS properties that makes a flexible column.
+// @param  {Number} $col-width:0										The width of a column expressed in 'grid columns'.
+// @param  {Number} $col-min:0											The minimum width of a column expressed in 'grid columns'.
+// @param  {Number} $flex-col:100%									A percentage value for the column width to be offset from.
+// @param  {Boolean} $ignoreFirstGutter: true				If true, supress the gutter value in the final calculations. Default value is 'true'.
+// @param  {Boolean} $skipWidth: false							If true, skips setting `width` rules setting only `min-width`. Default value is 'false'.
+// @return {CSS}                     								Returns a series of CSS properties that makes a flexible column.
 //
 @mixin flexColumnBuilder($col-width:0, $col-min:0, $flex-col:100%, $ignoreFirstGutter: true, $skipWidth: false) {
 	@if $skipWidth == false {
@@ -98,7 +114,7 @@ $grid-column-gutter: 20px !default;
 	}
 }
 //
-// This is a the main helper function that converts the grid columns into pixel values.
+// This is the main helper function that converts the grid columns into pixel values.
 // @param  {Number} $colsNum											Number of columns to be converted to pixels.
 // @param  {Boolean} $ignoreFirstGutter: false		If true, supress the gutter value in the final calculations. Default value is 'false'.
 // @return {Number}																Returns the calculation result.

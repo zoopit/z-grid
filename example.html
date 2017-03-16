@@ -24,6 +24,11 @@
 <body>
 	<h1>Z-Grid</h1>
 	<h5>A simple CSS flexible grid inspired(ish) by flexbox model using the calc() function.</h5>
+	<ul>
+		<li><a href="#grid">Flexible grid</a></li>
+		<li><a href="#mosaic">Mosaic</a></li>
+	</ul>
+	<h2 id="grid">Flexible grid</h2>
 	<div class="z-grid-row">
 		<h3>Columns only</h3>
 		<section class="z-grid-column color-eee">
@@ -93,6 +98,22 @@
 		<h3>Singlet columns</h3>
 		<div class="z-grid-column singlet-colflex-max-6c-min-4c color-333">Singlet columns (max-width: 6 and min-width: 4).</div>
 		<div class="z-grid-column singlet-colflex-max-12c-min-4c color-000">Singlet columns (max-width: 12 and min-width: 4).</div>
+	</div>
+	<hr>
+	<h2 id="mosaic">Mosaic</h2>
+	<div class="z-grid-mosaic mcolumns-5c">
+		<p class="z-grid-tile">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea cur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<p class="z-grid-tile">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore m pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<div class="z-grid-tile color-333"><h4>This is one tile</h4></div>
+		<div class="z-grid-tile color-666"><h4>Tile is another tile</h4></div>
+		<div class="z-grid-tile color-eee">
+			<h4>Tile 4c</h4>
+			<p>Lorem ipsum dolor sit amet, c Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<div class="z-grid-tile color-000"><h4>Forced tile</h4></div>
+		<div class="z-grid-tile color-666"><h4>Forced tile</h4></div>
+		<div class="z-grid-tile color-aaa"><h4>Forced tile</h4></div>
+		<div class="z-grid-tile color-eee"><h4>Forced tile</h4></div>
 	</div>
 </body>
 </html>
