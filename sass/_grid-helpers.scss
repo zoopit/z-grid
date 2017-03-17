@@ -66,7 +66,7 @@ $grid-column-gutter: 20px !default;
 	@for $i from 1 through $num-of-mosaics {
 		.#{$class-prefix}#{$i}#{$class-suffix} {
 			column-count: $i;
-			column-width: columnsToPixels($num-of-mosaics - $i, true);
+			column-width: columnsToPixels($num-of-mosaics - $i);
 		}
 	}
 }
