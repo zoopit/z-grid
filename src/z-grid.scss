@@ -1,5 +1,5 @@
 /*!
-Copyright (c) 2017 Felipe Hefler/Zoopit AS.
+Copyright (c) 2018 Felipe Hefler/Zoopit AS.
 This file is part of Z-Grid.
 
 Z-Grid is free software: you can redistribute it and/or modify
@@ -52,6 +52,15 @@ A copy of the GNU General Public License can be found at
 }
 .singlet-colflex-max-12c-min-4c {
 	@include columnBuilder(12,4);
+}
+.singlet-colflex-max-14c-min-4c {
+	@include columnBuilder(14,4);
+}
+.singlet-colflex-max-16c-min-4c {
+	@include columnBuilder(16,4);
+}
+.singlet-colflex-max-18c-min-4c {
+	@include columnBuilder(18,4);
 }
 .singlet-colflex-single-max-6c-min-3c {
 	@include columnBuilder(6,3);

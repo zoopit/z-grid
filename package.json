@@ -1,0 +1,22 @@
+{
+  "name": "z-grid",
+  "version": "1.0.0",
+  "description": "Z-Grid is a simple CSS flexible grid inspired(ish) by flexbox model using the calc() function.",
+  "scripts": {
+    "build": "node-sass --include-path src src/z-grid.scss dist/z-grid.css | node-sass --include-path src --output-style compressed src/z-grid.scss dist/z-grid.min.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoopit/z-grid.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zoopit/z-grid/issues"
+  },
+  "homepage": "https://github.com/zoopit/z-grid#readme",
+  "devDependencies": {
+    "node-sass": "^4.8.3"
+  }
+}

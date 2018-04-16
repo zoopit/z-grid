@@ -5,9 +5,9 @@
     "Felipe Hefler", "Zoopit AS"
   ],
   "main": [
-    "dist/z-grid.css",
-    "sass/z-grid.scss"
+    "src/z-grid.scss"
   ],
+	"private": true,
 	"repository": {
 	  "type": "git",
 	  "url": "git://github.com/zoopit/z-grid.git"
@@ -24,6 +24,6 @@
   "ignore": [
     ".*",
     "bower_components",
-		"config.codekit"
+    "node_modules"
   ]
 }
