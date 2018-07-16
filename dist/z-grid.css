@@ -90,8 +90,8 @@ A copy of the GNU General Public License can be found at
   margin-left: auto;
   margin-right: auto; }
 
-.z-grid-column[class^="singlet-"]:not(:first-of-type), .z-grid-column[class*=" singlet-"]:not(:first-of-type) {
-  margin-left: auto; }
+.z-grid-column[class^="singlet-"]:not(:last-of-type), .z-grid-column[class*=" singlet-"]:not(:last-of-type) {
+  margin-right: auto; }
 
 .singlet-colflex-max-6c-min-4c {
   max-width: 460px;
@@ -126,8 +126,8 @@ A copy of the GNU General Public License can be found at
 @media screen and (min-width: 768px) {
   .z-grid-column {
     float: left; }
-    .z-grid-column:not(:first-of-type) {
-      margin-left: 20px; }
+    .z-grid-column:not(:last-of-type) {
+      margin-right: 20px; }
   .z-grid-mosaic {
     column-gap: 20px; }
     .z-grid-mosaic .z-grid-tile {
@@ -209,5 +209,5 @@ A copy of the GNU General Public License can be found at
     column-width: -20px; } }
 
 @media screen and (max-width: 767px) {
-  .z-grid-column[class^="colflex-"]:not(:first-of-type), .z-grid-column[class*=" colflex-"]:not(:first-of-type), .z-grid-column:not(:first-of-type), .z-grid-column {
+  .z-grid-column[class^="colflex-"]:not(:last-of-type), .z-grid-column[class*=" colflex-"]:not(:last-of-type), .z-grid-column:not(:last-of-type), .z-grid-column {
     width: auto; } }

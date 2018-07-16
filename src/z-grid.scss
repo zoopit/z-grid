@@ -44,8 +44,8 @@ A copy of the GNU General Public License can be found at
 	margin-left: auto;
 	margin-right: auto;
 }
-.z-grid-column[class^="singlet-"]:not(:first-of-type), .z-grid-column[class*=" singlet-"]:not(:first-of-type) {
-	margin-left: auto;
+.z-grid-column[class^="singlet-"]:not(:last-of-type), .z-grid-column[class*=" singlet-"]:not(:last-of-type) {
+	margin-right: auto;
 }
 .singlet-colflex-max-6c-min-4c {
 	@include columnBuilder(6,4);
@@ -74,8 +74,8 @@ A copy of the GNU General Public License can be found at
 @media screen and (min-width: 768px) {
 	.z-grid-column {
 		float: left;
-		&:not(:first-of-type) {
-			margin-left: $grid-column-gutter;
+		&:not(:last-of-type) {
+			margin-right: $grid-column-gutter;
 		}
 	}
 	.z-grid-mosaic {
@@ -91,9 +91,9 @@ A copy of the GNU General Public License can be found at
 }
 @media screen and (max-width: 767px) {
 	.z-grid-column {
-		&[class^="colflex-"]:not(:first-of-type),
-		&[class*=" colflex-"]:not(:first-of-type),
-		&:not(:first-of-type), & {
+		&[class^="colflex-"]:not(:last-of-type),
+		&[class*=" colflex-"]:not(:last-of-type),
+		&:not(:last-of-type), & {
 			width: auto;
 		}
 	}
