@@ -84,6 +84,12 @@ A copy of the GNU General Public License can be found at
   .colflex-10p.z-grid-column:not(:last-of-type) {
     width: calc(10% - 20px); }
 
+/*Extra sizes*/
+.colflex-30p {
+  width: 30%; }
+  .colflex-30p.z-grid-column:not(:last-of-type) {
+    width: calc(30% - 20px); }
+
 .z-grid-column[class^="singlet-"], .z-grid-column[class*=" singlet-"] {
   width: 100%;
   float: none;

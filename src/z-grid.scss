@@ -37,6 +37,8 @@ A copy of the GNU General Public License can be found at
 @include createPercentageColumn(40);
 @include createPercentageColumn(20);
 @include createPercentageColumn(10);
+/*Extra sizes*/
+@include createPercentageColumn(30);
 
 .z-grid-column[class^="singlet-"], .z-grid-column[class*=" singlet-"] {
 	width: 100%;
