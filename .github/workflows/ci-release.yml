@@ -1,0 +1,26 @@
+name: job CI
+
+on: push
+
+jobs:
+  job-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+
+      - run: npm audit --audit-level=high
+
+      - run: npm ci
+        env:
+          FURY_AUTH: ${{ secrets.FURY_AUTH_PULL }}
+
+      - name: Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FURY_AUTH: ${{ secrets.FURY_AUTH_PUSH }}
+        run: npx semantic-release

@@ -1,5 +1,5 @@
 {
-  "name": "z-grid",
+  "name": "@zoopit-legacy/z-grid",
   "version": "1.2.3",
   "description": "Z-Grid is a simple CSS flexible grid inspired(ish) by flexbox model using the calc() function.",
   "scripts": {
@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/zoopit/z-grid#readme",
   "devDependencies": {
-    "sass": "^1.54.0"
+    "sass": "^1.54.0",
+    "conventional-changelog-conventionalcommits": "^4.6.3",
+    "semantic-release": "^19.0.2"
   }
 }
